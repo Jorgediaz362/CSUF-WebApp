@@ -2,6 +2,6 @@
 CPSC 362 Group Project
 
 Group members:
-Jorge Diaz
-Edgar Espin
-Swagat Buha
+Jorge Diaz,
+Edgar Espin,
+Swagat Buha,
