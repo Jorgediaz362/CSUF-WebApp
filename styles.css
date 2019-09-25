@@ -1,0 +1,62 @@
+body{
+    background: orange;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    margin:0;
+    padding:0;
+}
+header{
+    background-color: black;
+    background-image: url(images/titian.jpg);
+    background-size: 100%;
+    background-position: center;
+    height: 500px;
+    padding: 20px;
+    text-align: center;
+}
+header .logo a{
+    background-image: url("images/logo.png");
+    background-size: 300px;
+    background-repeat: no-repeat;
+    display:inline-block;
+    height: 100px;
+    position: relative;
+    text-indent: 10px;
+    top: -20px;
+    width: 300px;
+}
+.content-box{
+    background: orange;
+    color:black;
+    padding: 20px;
+    display:flex;
+}
+.content-box div{
+    margin: 0 auto;   
+    width:600px;
+
+}
+.content-box.triple div{
+    background:blue;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li{
+    display: inline-block;
+    margin-right: 20px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: underline;
+}
+footer{
+    background: orange;
+    padding: 10px 20px;
+
+}
