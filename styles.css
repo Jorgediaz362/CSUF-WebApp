@@ -60,3 +60,12 @@ footer{
     padding: 10px 20px;
 
 }
+.registration-form {
+    width: 500px;
+    clear: both;
+}
+
+.registration-form input {
+     width: 100%;
+     clear: both;
+ }
