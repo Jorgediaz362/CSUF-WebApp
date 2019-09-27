@@ -5,5 +5,5 @@ Group members:
 Jorge Diaz,
 Edgar Espin,
 Swagat Buha,
-Jackson Martin
+Jackson Martin,
 Jose Rodriguez
