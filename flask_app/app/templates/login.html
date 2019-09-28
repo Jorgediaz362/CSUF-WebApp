@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<img src="{{url_for('static', filename='Tuffy_CSUF.jpg')}}" style="width:200px;height:240px;"/>
+    <h1>Sign In</h1>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form) }}
+        </div>
+    </div>
+    <br>
+    <p>New User? <a href="">Click to Register!</a></p>
+    <p>
+        Forgot Your Password?
+        <a href="">Click to Reset It</a>
+    </p>
+{% endblock %}
