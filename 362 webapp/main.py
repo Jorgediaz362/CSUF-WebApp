@@ -13,6 +13,7 @@ def index():
 @app.route('/signup.html', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
+        print('Username:' + request.form['email'] + ' password' + request.form['password'])
         return 'Username:' + request.form['email'] + ' password' + request.form['password']
     return app.send_static_file('signup.html')
 
@@ -27,5 +28,5 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
+        print('Username:' + request.form['email'] + ' password' + request.form['password'])
         return 'Username:' + request.form['email'] + ' password' + request.form['password']
-        
