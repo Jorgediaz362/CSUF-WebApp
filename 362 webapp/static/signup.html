@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <title>Home</title>
+        <link rel="stylesheet" href="/static/styles.css">
+    </head>
+
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="forum.html">Forum</a></li>
+                    <li class="logo"><a href="index.html"></a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="content-box">
+            <div class="registration-form">
+                <form id="registration" method="post">
+                    <h1>Register an Account!</h1>
+
+                    <label for="Email"><b>Email</b></label>
+                
+                    <input type="text" placeholder="Enter Email" name="email" required />
+
+                    <br />
+
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="password" required />
+
+                    <br />
+
+                    <label for="password-repeat"><b>Enter Password Again</b></label>
+                    <input type="password" placeholder="Enter Password Again" name="password-repeat" required />
+
+                    <button id="registerbtn" type="submit">Register</button>
+                </form>
+            </div>
+        </section>
+        <footer></footer>
+
+    </body>
+
+</html>
+
+<script>
+    $('#registerbtn').click(function() {
+        $ajax({
+            url : "/register",
+            type : "POST",
+            data : {
+                email : document.getElementById("email"),
+                password : document.getElementById("password")
+            },
+            dataType: "json",
+            beforeSend: function(x) 
+            {
+                if (x && x.overrideMimeType) 
+                {
+                    x.overrideMimeType("application/j-son;charset=UTF-8");
+                }
+            },
+            success: function(result) 
+            {
+
+            }
+        })
+    })
+</script>
