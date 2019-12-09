@@ -2,29 +2,43 @@
 
 <html>
     <head>
-        <title>Home</title>
-        <link rel="stylesheet" href="styles.css">
+        <title>Sign Up</title>
+        <meta charset="utf-8">
+        <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
 
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://titanconnect.pythonanywhere.com/">Titan Connect</a>
+                </div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://titanconnect.pythonanywhere.com/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+            </ul>
+            </div>
+        </nav>
     <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="forum.html">Forum</a></li>
-                    <li class="logo"><a href="index.html"></a></li>
-                    <li><a href="signup.html">Sign Up</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section class="content-box">
-            <div class="registration-form">
-                <form id="registration" method="post">
-                    <h1>Register an Account!</h1>
 
+        <div class="container">
+            <img class="img" src="static/logo.png" width="800" height="190" style="padding-left: 300px;" padding alt="CSUF Image" />
+        </div>
+
+        <section class="content-box">
+            <div class="login-card">
+                <h1>Register an Account!</h1>
+                <form id="registration" method="post">
                     <label for="Email"><b>Email</b></label>
-                
-                    <input type="text" placeholder="Enter Email" name="email" required />
+
+                    <input type="text" placeholder="Enter Email" name="email" pattern ="^[a-zA-Z0-9._%+-]+@((C|c)(S|s)(U|u)\.(F|f)(U|u)(L|l)(L|l)(E|e)(R|r)(T|t)(O|o)(N|n)\.(E|e)(D|d)(U|u))$" required required title="email@csu.fullerton.edu"/>
 
                     <br />
 
@@ -36,12 +50,35 @@
                     <label for="password-repeat"><b>Enter Password Again</b></label>
                     <input type="password" placeholder="Enter Password Again" name="password-repeat" required />
 
-                    <button type="submit" class="registerbtn">Register</button>
+                    <button id="registerbtn" type="submit" class="login login-submit">Register</button>
                 </form>
             </div>
         </section>
         <footer></footer>
-
     </body>
-
 </html>
+
+<script>
+    $('#registerbtn').click(function() {
+        $.ajax({
+            url : "/register",
+            type : "POST",
+            data : {
+                email : document.getElementById("email"),
+                password : document.getElementById("password")
+            },
+            dataType: "json",
+            beforeSend: function(x)
+            {
+                if (x && x.overrideMimeType)
+                {
+                    x.overrideMimeType("application/j-son;charset=UTF-8");
+                }
+            },
+            success: function(result)
+            {
+
+            }
+        });
+    });
+</script>
