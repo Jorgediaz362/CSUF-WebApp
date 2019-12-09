@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{ title }}</title>
+        <meta charset="utf-8">
+                <!-- Bootstrap -->
+        <link href="static/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom -->
+        <link href="static/custom.css" rel="stylesheet">
+
+        <!-- fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="font-awesome-4.0.3/css/font-awesome.min.css">
+
+        <!-- CSS STYLE-->
+        <link rel="stylesheet" type="text/css" href="/static/style.css" media="screen" />
+
+        <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+        <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
+        <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/static/style.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="/static/styles.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/static/custom.css" rel="stylesheet">
+        <link href="/static/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://titanconnect.pythonanywhere.com/">Titan Connect</a>
+                </div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://titanconnect.pythonanywhere.com/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+		{% if session['user'] %}
+                <li><a href="http://titanconnect.pythonanywhere.com/profile.html"><span class="glyphicon glyphicon-user"></span>{{g.user}}</a></li>
+                <li><a href="http://titanconnect.pythonanywhere.com/logout"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+        {% else %}
+		        <li><a href="http://titanconnect.pythonanywhere.com/signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li><a href="http://titanconnect.pythonanywhere.com/login.html"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+		{% endif %}
+		</ul>
+            </div>
+        </nav>
+<style>
+
+p.c {
+  white-space: pre;
+}
+</style>
+
+<div class="container">
+            <img class="img" src="/static/logo.png" width="800" height="190" style="padding-left: 300px;" padding alt="CSUF Image" />
+    </div>
+
+    </head>
+
+
+    <body>
+	{% block content %}{% endblock %}
+    </body>
+</html>
+
+{% block scripty %}
+    {{js|safe}}
+{% endblock %}
+
+
