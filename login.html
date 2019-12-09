@@ -1,46 +1,92 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+    <head>
+        <title>Login</title>
 
-  <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-  <title>Login</title>
+    </head>
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://titanconnect.pythonanywhere.com/">Titan Connect</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class><a href="http://titanconnect.pythonanywhere.com/">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                    <li class="active"><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
-  <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+    <body>
+        <div class="container">
+                <img class="img" src="static/logo.png" width="800" height="190" style="padding-left: 300px;" padding alt="CSUF Image" />
+        </div>
 
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="styles.css">
-
-</head>
-
-<body>
-  <header>
-    <nav>
-        <ul>
-            <li><a href="index.html"></a></li>
-            <li class="logo"><a href="index.html"></a></li>
-        </ul>
-    </nav>
-    <h1></h1>
-</header>
-  <div class="login-card">
-    <h1>Login</h1><br>
-  <form>
-    <input type="text" name="user" placeholder="Username">
-    <input type="password" name="pass" placeholder="Password">
-    <input type="submit" name="login" class="login login-submit" value="login">
-  </form>
-
-  <div class="login-help">
-    <a href="#">Register</a> • <a href="#">Forgot Password</a>
-  </div>
-</div>
-
-<!-- <div id="error"><img src="https://dl.dropboxusercontent.com/u/23299152/Delete-icon.png" /> Your caps-lock is on.</div> -->
-
-  <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
-
-</body>
-
+        <div class="login-card">
+                <div class="main">
+                    <h2>Log In</h2>
+                    <form id="form_id" method="post" name="myform">
+                        <label>email :</label>
+                            <input type="text" name="username" id="username"/>
+                        <label>Password :</label>
+                            <input type="password" name="password" id="password"/>
+                            <input type="button" value="Login" id="loginbtn"/>
+                    </form>
+                </div>
+        </div>
+    </body>
 </html>
+
+<script>
+/*
+$(document).ready(function(){
+    $("logbtn").click(function(){
+        $.post("/login.html",
+        {
+            username: document.getElementById("username"),
+            password: document.getElementById("password")
+        },
+        function(data, status)
+        {
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+    });
+});
+*/
+
+ $('#loginbtn').click(function() {
+        $.ajax({
+            url: "/login.html",
+            type: "POST",
+            data: JSON.stringify({
+                username: document.getElementById("username").value,
+                password: document.getElementById("password").value
+            }),
+            dataType: "text", // data type we are expecting in our response from the server
+            contentType: "application/json;charset=UTF-8", // data type we are sending to the server
+            /*beforeSend: function(x)
+            {
+                if (x && x.overrideMimeType)
+                {
+                    x.overrideMimeType("application/j-son;charset=UTF-8");
+                }
+            },*/
+            success: function(data, text)
+            {
+                document.location.href='/';
+            }
+        });
+    });
+
+</script>
