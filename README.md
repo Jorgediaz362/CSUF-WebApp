@@ -6,4 +6,5 @@ Jorge Diaz,
 Edgar Espin,
 Swagat Buha,
 Jackson Martin,
-Jose Rodriguez
+Jose Rodriguez,
+Kizar Cassiere 
