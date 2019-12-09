@@ -1,5 +1,5 @@
 body{
-    background: orange;
+    background: white;
     color:white;
     font-family:Arial, Helvetica, sans-serif;
     margin:0;
@@ -7,7 +7,7 @@ body{
 }
 header{
     background-color: black;
-    background-image: url(images/titian.jpg);
+    background-image: url(/static/titian.jpg);
     background-size: 100%;
     background-position: center;
     height: 500px;
@@ -15,7 +15,7 @@ header{
     text-align: center;
 }
 header .logo a{
-    background-image: url("images/logo.png");
+    background-image: url("/static/logo.png");
     background-size: 300px;
     background-repeat: no-repeat;
     display:inline-block;
@@ -32,7 +32,7 @@ header .logo a{
     display:flex;
 }
 .content-box div{
-    margin: 0 auto;   
+    margin: 0 auto;
     width:600px;
 
 }
