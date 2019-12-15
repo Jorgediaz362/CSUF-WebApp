@@ -1,0 +1,4 @@
+mysql_host: 'titanconnect.mysql.pythonanywhere-services.com'
+mysql_user: 'titanconnect'
+mysql_password: 'f@vZHtizz'
+mysql_db: 'titanconnect$default'

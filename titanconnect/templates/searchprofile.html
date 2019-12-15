@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="headernav">
+    <div class="container">
+        <div class="row">
+            <div >
+                <!--
+                <div class="dropdown pull-left">
+                    <select id = "dropdown">
+                        <option value = "description">Description</option>
+                        <option value = "user">User</option>
+                    </select>
+                </div>
+                -->
+                <div class="col-lg-4 search">
+                    <div class="pull-right">
+                        <input type="text" placeholder="Search" id="search-form" class="form-control"/>
+                    </div>
+                    <div class="pull-right">
+                        <button type="submit" id="search-submit" class="btn">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-8">
+
+             <!--{% autoescape false %}-->
+                  {% for item in data %}
+                            <!-- POST -->
+                            <div class="post">
+                                <div class="wrap-ut pull-left">
+                                    <div class="userinfo pull-left">
+                                         <!--<div class="avatar">
+                                            <img src="images/avatar.jpg"  alt="" />
+                                            <br><br>
+
+                                        </div>-->
+
+
+                                    </div>
+                                    <div class="posttext pull-left">
+                                        <h2><a href="http://titanconnect.pythonanywhere.com/post/{{item[3]}}">{{item[1]}}</a></h2>
+                                        <!--<pre><p>{{item[2]}}</p></pre>-->
+                                        <p class="c">{{item[2]}}</p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="postinfo pull-left">
+                                    <div class="comments">
+                                        <div class="commentbg">
+                                            {{item[6]}}
+                                            <div class="mark"></div>
+                                        </div>
+
+                                    </div>
+                                    <!--<div class="views"><i class="fa fa-eye"></i> 65 views</div>-->
+                                    {% set list = item[0].split('@') %}
+                                    <!--<div class="views"><i class="fa fa-eye"></i> {{item[0]}}</div>-->
+                                    <div class="views"><i class="fa fa-eye"></i> {{ item[5] }}</div>
+                                </div>
+
+                               <div class="postinfobot">
+
+
+                                    <div class="prev pull-left"></div>
+                                    <div class="posted pull-left">Posted by: <a href="http://titanconnect.pythonanywhere.com/users/{{list[0]}}">{{list[0]}}</a></div>
+                                    <!--<div class="posted pull-left"> Posted by: {{list[0]}}</div>-->
+
+
+                                    <div class="next pull-right"></div>
+                                        <div class="likeblock pull-left">
+                                                <div class = "rating">
+                                                     <div class="like grow"><i class="fa fa-thumbs-up fa-1x like" aria-hidden="true"></i></div>
+                                                     <div class="dislike grow"><i class="fa fa-thumbs-down fa-1x like" aria-hidden="true"></i></div>
+                                                </div>
+                                        </div>
+                                     </div>
+
+
+                               <!-- <div class="rating">
+
+                                      <div class="like grow">
+                                        <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+                                      </div>
+
+                                      <div class="dislike grow">
+                                        <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+                                      </div>
+                                </div>-->
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <!-- POST -->
+                    {% endfor %}
+            <!--{% endautoescape %}-->
+
+
+                         </div>
+
+                    </div>
+                </div>
+
+
+<script type="text/javascript" src="static/searchprofile.js"></script>
+{% endblock %}

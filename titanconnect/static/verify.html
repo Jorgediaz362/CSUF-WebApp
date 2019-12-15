@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Sign Up</title>
+        <meta charset="utf-8">
+        <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://titanconnect.pythonanywhere.com/">Titan Connect</a>
+                </div>
+            <ul class="nav navbar-nav">
+                <li><a href="http://titanconnect.pythonanywhere.com/">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="signup.html"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Log in</a></li>
+            </ul>
+            </div>
+        </nav>
+    <body>
+
+        <div class="container">
+            <img class="img" src="static/logo.png" width="800" height="190" style="padding-left: 300px;" padding alt="CSUF Image" />
+        </div>
+
+        <section class="content-box">
+            <div class="login-card">
+                <h1>Register an Account!</h1>
+                <form id="verification" method="post">
+                    <label for="attempt"><b>Enter code here:</b></label>
+
+                    <input type="text" placeholder="code" name="code"/>
+
+                    <button id="verifybtn" type="submit" class="login login-submit">Verify</button>
+                </form>
+            </div>
+        </section>
+        <footer></footer>
+    </body>
+</html>
+
+<script>
+    $('#verifybtn').click(function() {
+        $.ajax({
+            url : "http://titanconnect.pythonanyhwere.com/verify",
+            type : "POST",
+            data : JSON.stringify({
+                token : document.getElementById("code"),
+            }),
+            dataType: "json",
+            beforeSend: function(x)
+            {
+                if (x && x.overrideMimeType)
+                {
+                    x.overrideMimeType("application/j-son;charset=UTF-8");
+                }
+            },
+            success: function(result)
+            {
+
+            }
+        });
+    });
+</script>
